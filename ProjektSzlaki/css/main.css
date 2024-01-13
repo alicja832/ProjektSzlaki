@@ -1,0 +1,106 @@
+body{
+    background-color:rgb(1, 2, 0);
+  }
+  .main{
+    background-color:rgba(166, 192, 139, 0.288);
+    align-items: left;
+  }
+  button{
+    margin-top: 5px;
+    background-color: rgb(214, 232, 247);
+    color:rgb(5, 0, 0);
+  }
+  .opis
+  {
+    color:lightgreen;
+    font-size: 20px;
+  }
+  .active{
+    background-color: rgb(98, 184, 88);
+  }
+  h1{
+    color:white;
+  }
+  section{
+    text-align: left;
+    text-align: center;
+  }
+  .logo{
+    align-items: left;
+  } 
+  .menus{
+    display: inline-block;
+    font-size: 16px;
+  }
+  #menu{
+    text-align: center;
+  }
+  #app{
+    text-align: center;
+  }
+  table{
+    background-color:rgba(166, 192, 139, 0.288);
+    border-color: black;
+    color: rgb(214, 232, 247);
+    margin: auto;
+    font-size: 20px;
+  }
+  .pierwszy
+  {
+    background-color:dimgrey
+  }
+  p{
+    color:white;
+  }
+#panel{
+    margin-top: 5px;
+    background-color: rgb(214, 232, 247);
+    color:rgb(5, 0, 0);
+  }
+header
+{
+  color:lightgreen;
+  font-size: 30px;
+}
+
+.image1
+{
+  width:20%;
+  height:100%;
+  margin:2%;
+  align-items: right;
+  text-align: right;
+
+}
+.image2
+{
+  width:90%;
+  height:100%;
+  margin:5%;
+  align-items: center;
+  text-align: center;
+
+}
+#container {
+  display: flex;
+}
+.text
+{
+  width:50%;
+  height:100%;
+  margin:2%;
+  border: 10px solid #0f2b185d;  /* Grubość i kolor ramki */
+  border-radius: 10px;    /* Zaokrąglenie krawędzi */
+  background-color: #f9f9f9;  /* Kolor tła ramki */
+  font-size: 20px;
+}
+footer{
+  background-color:rgba(166, 192, 139, 0.288);
+  align-items: center;
+  color:white;
+  text-align: center;
+}
+.response
+{
+  background-color: dimgray;
+}
