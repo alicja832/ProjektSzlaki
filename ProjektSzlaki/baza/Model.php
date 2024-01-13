@@ -5,7 +5,6 @@ use PDO ;
  
 class Model 
 {  
-   static $dsn;
    protected static $db ;
    private $sth ;
    private $id_trasa;
@@ -14,7 +13,7 @@ class Model
    {
     try{
     $db = new PDO("pgsql:host='flora.db.elephantsql.com' port='5432'
-        user='aqmelqzr' password='iMLKQnrMYXCK5VP8ZmpxIkeK9Kvg2PfM' dbname='aqmelqzr'"); 
+        user='*****' password='*****' dbname='****'"); 
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$db = $db; 
     }
