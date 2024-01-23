@@ -5,6 +5,7 @@ use PDO ;
  
 class Model 
 {  
+   static $dsn;
    protected static $db ;
    private $sth ;
    private $id_trasa;
@@ -13,7 +14,7 @@ class Model
    {
     try{
     $db = new PDO("pgsql:host='flora.db.elephantsql.com' port='5432'
-        user='*****' password='*****' dbname='****'"); 
+        user='****' password='*****' dbname='*****'"); 
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$db = $db; 
     }
@@ -293,17 +294,16 @@ class Model
       $sql = "SELECT trasa_id FROM ap_szlaki.trasa order by trasa_id desc limit 1";
       $this->sth = self::$db->query($sql);
       $result = $this->sth->fetch() ;
-      error_log($result['trasa_id']);
+     
       $sql = "INSERT INTO ap_szlaki.punkt_trasa(punkt_id,trasa_id)values(:id,:trasa_id)";
       $this->sth = self::$db->prepare($sql);
       $this->sth->bindValue(':id',$id,PDO::PARAM_INT); 
       $this->sth->bindValue(':trasa_id',$result['trasa_id'],PDO::PARAM_INT); 
-      error_log('CO JESTTTT');
+     
       $resp = $this->sth->execute() ? 'true' : 'false';
       $errorInfo = $this->sth->errorInfo();
       if ($errorInfo[0] !== '00000') {
-      error_log("SQL error: {$errorInfo[2]}");
-      error_log('CO JESTTTT');
+     
       return  $resp; 
    }
   }
@@ -323,7 +323,7 @@ class Model
       }
     
         $sql = "INSERT INTO ap_szlaki.trasa(czas,odleglosc)values('00:00:00',0)";
-        error_log("Dodano trasie");
+        
         $this->sth = self::$db->prepare($sql);
         $resp = ( $this->sth->execute() ? 'true' : 'false' ) ;
         return $resp ; 
