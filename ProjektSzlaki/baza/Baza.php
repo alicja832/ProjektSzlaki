@@ -64,7 +64,6 @@ class Baza extends Controller
             {       
                $id=$resp['uzytkownik_id'];
                $_SESSION['user_id'] = $id;
-               error_log($id);
             }
          }
       return ( $response ? "Zarejestrowano użytkownika" : "Blad " ) ;
@@ -84,7 +83,7 @@ class Baza extends Controller
          {       
             $id=$response['uzytkownik_id'];
             $_SESSION['user_id'] = $id;
-            error_log($id);
+           
             return "Zalogowano użytkownika";
          }
       }
@@ -213,7 +212,6 @@ class Baza extends Controller
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
                if($el)
                  array_push($elements,$el);
             }
@@ -235,7 +233,6 @@ class Baza extends Controller
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
                $response = $this->model->usunSchr($el);
             }
          }
@@ -255,7 +252,6 @@ class Baza extends Controller
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
                $response = $this->model->usunSzczyt($el);
             }
          }
@@ -274,7 +270,6 @@ class Baza extends Controller
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
                $response = $this->model->usunSzlak($el);
             }
          }
@@ -293,7 +288,6 @@ class Baza extends Controller
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
                $response = $this->model->usunTrase($el);
             }
          }
@@ -436,10 +430,10 @@ function wyborszczyt(){
             $parts = explode("/",$id);
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
+              
                if($el)
                {
-                  error_log($el);
+                 
                   $this->view->data = $this->model->listaSzlakWyb($el);
                }
             }
@@ -462,13 +456,13 @@ function wyborpunkt(){
          foreach($obj as $id)
          {
             $parts = explode("/",$id);
-            error_log("Hello");
+          
             foreach($parts as $el){
                $el=intval($el);
-               error_log($el);
+            
                if($el)
                {
-                  error_log($el);
+                  
                   $response = $this->model->dodaj_pkt($el);
                  
                }
@@ -572,7 +566,8 @@ function punkt_dol(){
 	{
 		unset($_SESSION);
 		session_destroy();
-		return "Wylogowano";
+      $this->layout->title='Wylogowano';
+		return $this->layout;
 	}	
  
 	
